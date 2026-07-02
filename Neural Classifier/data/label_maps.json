@@ -1,0 +1,42 @@
+{
+  "stage1_categories": [
+    "EXPENSES",
+    "PERSONAL",
+    "REVENUE"
+  ],
+  "stage2_subcategories": [
+    "AI Startup Project",
+    "Bill Payment & TRANSFER",
+    "Business Seminar",
+    "Business Trip",
+    "Car",
+    "In Person Event Expenses",
+    "Insurance",
+    "Office Supplies",
+    "Office equipment",
+    "Office expenses",
+    "Other",
+    "RENT",
+    "Restaurant Expenses",
+    "Salary",
+    "Training",
+    "Travel Expenses",
+    "banking",
+    "donation"
+  ],
+  "excluded_categories": [
+    "BMO_MC pmt",
+    "BOROWING",
+    "BORROW/PAYBACK",
+    "BORROWING",
+    "BORROWING FROM PERSONAL ACCT.",
+    "E-TRANSFER",
+    "OTHER",
+    "PAY BACK",
+    "TD VISA PMT",
+    "TRANSFER"
+  ],
+  "min_subcat_samples": 5,
+  "n_train_rows": 1868,
+  "n_stage2_rows": 986
+}

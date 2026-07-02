@@ -1,0 +1,22 @@
+{
+  "num_labels": 3,
+  "label_to_id": {
+    "EXPENSES": 0,
+    "PERSONAL": 1,
+    "REVENUE": 2
+  },
+  "id_to_label": {
+    "0": "EXPENSES",
+    "1": "PERSONAL",
+    "2": "REVENUE"
+  },
+  "source_vocab": [
+    "BMO_CK",
+    "BMO_LOC",
+    "BMO_MC",
+    "TD_Visa",
+    "Tangerine",
+    "CIBC"
+  ],
+  "encoder_name": "distilbert-base-uncased"
+}

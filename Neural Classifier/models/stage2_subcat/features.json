@@ -1,0 +1,52 @@
+{
+  "num_labels": 18,
+  "label_to_id": {
+    "AI Startup Project": 0,
+    "Bill Payment & TRANSFER": 1,
+    "Business Seminar": 2,
+    "Business Trip": 3,
+    "Car": 4,
+    "In Person Event Expenses": 5,
+    "Insurance": 6,
+    "Office Supplies": 7,
+    "Office equipment": 8,
+    "Office expenses": 9,
+    "Other": 10,
+    "RENT": 11,
+    "Restaurant Expenses": 12,
+    "Salary": 13,
+    "Training": 14,
+    "Travel Expenses": 15,
+    "banking": 16,
+    "donation": 17
+  },
+  "id_to_label": {
+    "0": "AI Startup Project",
+    "1": "Bill Payment & TRANSFER",
+    "2": "Business Seminar",
+    "3": "Business Trip",
+    "4": "Car",
+    "5": "In Person Event Expenses",
+    "6": "Insurance",
+    "7": "Office Supplies",
+    "8": "Office equipment",
+    "9": "Office expenses",
+    "10": "Other",
+    "11": "RENT",
+    "12": "Restaurant Expenses",
+    "13": "Salary",
+    "14": "Training",
+    "15": "Travel Expenses",
+    "16": "banking",
+    "17": "donation"
+  },
+  "source_vocab": [
+    "BMO_CK",
+    "BMO_LOC",
+    "BMO_MC",
+    "TD_Visa",
+    "Tangerine",
+    "CIBC"
+  ],
+  "encoder_name": "distilbert-base-uncased"
+}

@@ -1,0 +1,26 @@
+# interac_parser.py and the IMAP / orchestration layer of
+# email_extractor.py rely only on the Python standard library
+# (imaplib, email, csv, getpass, datetime, decimal, dataclasses,
+# fnmatch, re, io).
+#
+# openpyxl is required for the XLSX writer (write_xlsx). It's already
+# installed in LightGBM Classifier/src/venv via the classifier pipeline.
+openpyxl>=3.1
+
+# Invoice extraction:
+#   pdfplumber → primary PDF text + table extraction.
+#   pdf2image  → renders PDF pages to PIL images for the OCR fallback.
+#                Requires the Poppler binary on PATH:
+#                  Windows: install via `conda install -c conda-forge poppler`
+#                           or a Poppler-for-Windows release; add bin\ to PATH.
+#   pytesseract → Python wrapper around the Tesseract OCR engine.
+#                Requires the Tesseract binary on PATH:
+#                  Windows: `winget install --id UB-Mannheim.TesseractOCR`
+#   Pillow     → image type backing for pdf2image / pytesseract.
+#
+# If Poppler or Tesseract is missing the script does NOT crash — the
+# OCR fallback is skipped and scanned-image PDFs simply yield no row.
+pdfplumber>=0.10
+pdf2image>=1.17
+pytesseract>=0.3.10
+Pillow>=10.0

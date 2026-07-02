@@ -1,0 +1,12 @@
+Tax Extractor/output
+Email Extractor/__pycache__
+Email Extractor/debug
+Email Extractor/notebooks
+testdata_past4months
+Neural Classifier/.pytest_cache
+Neural Classifier/torch_env
+Neural Classifier/venv
+Neural Classifier/output/classified_2026-06-25.xlsx
+Neural Classifier/data/incoming.csv
+Neural Classifier/data/master_labeled.csv
+Step-by-step guide.mp4

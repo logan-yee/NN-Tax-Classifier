@@ -1,0 +1,13 @@
+# Editable known-contacts map for Interac e-transfer classification.
+#   contact : counterparty name from the email-extractor CONTACT field
+#             (case-insensitive; matched if this text appears in the recovered name).
+#   lean    : business | personal
+# How it is used (src/rules.py):
+#   sending to a BUSINESS contact   -> Category = EXPENSES
+#   receiving from a BUSINESS contact -> Category = REVENUE
+#   PERSONAL contact (either way)   -> Category = PERSONAL
+# Names ending in INC/LTD/CORP/etc. are auto-treated as business (no entry needed).
+# Anything not matched here and without a company suffix stays UNRESOLVED -> highlighted.
+contact,lean
+sdv d2v science,business
+bob ross,business
