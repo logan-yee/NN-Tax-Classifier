@@ -178,5 +178,4 @@ Python 3.10+. Core: `torch`, `transformers`, `pandas`, `numpy`, `scikit-learn`,
 - There are no linters or a build system — the extractors and classifier are
   script/notebook pipelines. `Neural Classifier/src/test_rules.py` covers the rule
   layer (`python -m pytest src/test_rules.py`).
-- `Step-by-step guide.mp4` in the project root is a screen-recorded walkthrough.
 ```
