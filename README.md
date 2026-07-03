@@ -82,6 +82,82 @@ has its own detailed [`Neural Classifier/README.md`](Neural%20Classifier/README.
 
 ---
 
+## Local installation
+
+### Prerequisites
+
+- **Python 3.10+** (`python --version`). The classifier uses `torch` and
+  `transformers`, which have wheels for CPython 3.10–3.12.
+- **Git** to clone the repo.
+- **(Optional) Poppler + Tesseract** — only needed for the Email Extractor's
+  invoice-OCR fallback on scanned PDFs. Everything else works without them; a
+  missing binary just skips OCR rather than crashing.
+  - Windows: `winget install --id UB-Mannheim.TesseractOCR` for Tesseract;
+    install a Poppler-for-Windows release (or `conda install -c conda-forge
+    poppler`) and add its `bin\` to `PATH`.
+  - macOS: `brew install poppler tesseract`.
+  - Linux: `sudo apt install poppler-utils tesseract-ocr`.
+- **GPU is optional.** Training/inference auto-detect CUDA and fall back to CPU;
+  the models are small (DistilBERT), so CPU is fine for these dataset sizes.
+
+### 1. Clone
+
+```powershell
+git clone <repo-url> "NN Tax Classifier"
+cd "NN Tax Classifier"
+```
+
+### 2. Neural Classifier (main codebase)
+
+Each component keeps its own virtual environment. Set up the classifier first:
+
+```powershell
+cd "Neural Classifier"
+python -m venv venv
+.\venv\Scripts\Activate.ps1        # macOS/Linux: source venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+The DistilBERT encoder (`distilbert-base-uncased`, ~250 MB) is downloaded from
+Hugging Face on the first `train`/`predict` run and cached under
+`~/.cache/huggingface/`.
+
+Quick smoke test that the install works (uses a tiny row limit, no real data
+needed beyond the checked-in `data/incoming.csv`):
+
+```powershell
+python -c "import torch, transformers; print('torch', torch.__version__, 'cuda', torch.cuda.is_available())"
+python -m pytest src/test_rules.py        # rule-layer unit tests
+```
+
+### 3. Email Extractor (optional component)
+
+Only needed if you want to pull Interac/invoice/order data from an inbox. It has
+its own lighter dependency set:
+
+```powershell
+cd "..\Email Extractor"
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+You'll need an **app-specific password** for your mailbox (e.g. Gmail →
+Google Account → App passwords), not your normal login password.
+
+### 4. Tax Extractor (notebook)
+
+`Tax Extractor/notebooks/extractor.ipynb` runs in Jupyter. Reuse the Neural
+Classifier venv (which already has `pandas`) and add Jupyter + a PDF parser:
+
+```powershell
+pip install jupyter pdfplumber
+jupyter notebook "Tax Extractor/notebooks/extractor.ipynb"
+```
+
+---
+
 ## Running the full pipeline
 
 Everything below runs from `Neural Classifier/`, which globs the two sibling
